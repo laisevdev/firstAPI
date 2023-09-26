@@ -1,13 +1,15 @@
 require("dotenv").config();
 
+const db = require("./db.js");
+
 const express = require("express");
 const app = express();
 
-const db = require("./db.js");
+app.use(express.json());
 
-app.post("/customers", (req, res) => {
-    const postCustomer = request.body;
-    db.insertCustomer(customer);
+app.post("/customers", async (req, res) => {
+    const post_customer = req.body
+    db.insertCustomer(post_customer)
     res.sendStatus(201);
 });
 
