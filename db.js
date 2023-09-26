@@ -3,18 +3,6 @@ const customers = [{
     nome: "Suzana",
     idade: 24,
     uf: "MT"
-},
-{
-    id: 2,
-    nome:"Giovana",
-    idade:18,
-    uf: "MT"
-},
-{
-    id: 3,
-    nome:"Julia",
-    idade:38,
-    uf: "MT"
 }];
 
 function selectCustomers(){
