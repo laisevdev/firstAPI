@@ -7,6 +7,13 @@ const app = express();
 
 app.use(express.json());
 
+app.patch("/customers/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    const update_customer = req.body;
+    db.updateCustomer(id, update_customer);
+    res.sendStatus(200);
+});
+
 app.post("/customers", (req, res) => {
     const post_customer = req.body;
     db.insertCustomer(post_customer);
