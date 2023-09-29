@@ -7,6 +7,12 @@ const app = express();
 
 app.use(express.json());
 
+app.delete("/customers/:id", (req, res) => {
+    const idCustomer = parseInt(req.params.id);
+    db.deleteCustomer(idCustomer);
+    res.sendStatus(204);
+});
+
 app.patch("/customers/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const update_customer = req.body;
