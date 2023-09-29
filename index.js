@@ -7,9 +7,9 @@ const app = express();
 
 app.use(express.json());
 
-app.post("/customers", async (req, res) => {
-    const post_customer = req.body
-    db.insertCustomer(post_customer)
+app.post("/customers", (req, res) => {
+    const post_customer = req.body;
+    db.insertCustomer(post_customer);
     res.sendStatus(201);
 });
 
