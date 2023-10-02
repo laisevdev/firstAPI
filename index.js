@@ -28,9 +28,10 @@ app.post("/customers", (req, res) => {
     res.sendStatus(201);
 });
 
-app.get("/customers/:id", (req, res) => {
+app.get("/customers/:id", async (req, res) => {
     const id = parseInt(req.params.id);
-    res.json(db.selectCustomer(id));
+    const results = await db.selectCustomer(id);
+    res.json(results);
 });
 
 
