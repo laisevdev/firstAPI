@@ -13,8 +13,10 @@ async function selectCustomer(id){
     return id_customer[0];
 };
 
-function insertCustomer(customer){
-    customers.push(customer);
+async function insertCustomer(customer){
+    const values = [customer.nome, customer.idade, customer.uf, customer.email]
+    const insert_customer = await client.query("INSERT INTO customersapi (nome, idade, uf, email) VALUES (?, ?, ?, ?)", values);
+    insert_customer.push(customer);
 };
 
 function updateCustomer (id, customerData){
