@@ -22,9 +22,9 @@ app.patch("/customers/:id", (req, res) => {
     res.sendStatus(200);
 });
 
-app.post("/customers", (req, res) => {
+app.post("/customers", async (req, res) => {
     const post_customer = req.body;
-    db.insertCustomer(post_customer);
+     await db.insertCustomer(post_customer);
     res.sendStatus(201);
 });
 
