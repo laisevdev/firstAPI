@@ -5,6 +5,8 @@ const db = require("./db.js");
 const express = require("express");
 const app = express();
 
+const PORTA_SERVER = process.env.PORT;
+
 app.use(express.json());
 
 app.delete("/customers/:id", (req, res) => {
@@ -31,16 +33,18 @@ app.get("/customers/:id", (req, res) => {
     res.json(db.selectCustomer(id));
 });
 
-app.get("/customers", (req, res) => {
-    res.json(db.selectCustomers());
+
+app.get("/customers", async (req, res) => {
+    const results = await db.selectCustomers();
+    res.json(results);
 });
 
 app.get("/", (req, res) => {
     res.json({
-        message: "hello world, Brasil"
+        message: "Servidor funcionando na Porta" + ' ' + `${PORTA_SERVER}`
     });
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(`${PORTA_SERVER}`, () => {
     console.log("Servidor está Funcionando Corretamente!")
 });
