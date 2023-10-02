@@ -8,8 +8,9 @@ async function selectCustomers(){
     return allCustomers[0];
 };
 
-function selectCustomer(id){
-    return customers.find(c => c.id === id);
+async function selectCustomer(id){
+    const id_customer = await client.query("SELECT * FROM customersapi WHERE id=?;", [id]);
+    return id_customer[0];
 };
 
 function insertCustomer(customer){
