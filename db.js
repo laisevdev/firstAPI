@@ -4,7 +4,7 @@ const mysql = require("mysql2/promise");
 const client = mysql.createPool(process.env.CONNECTION_STRING);
 
 async function selectCustomers(){
-    const allCustomers = await client.query("SELECT * FROM customersAPI;");
+    const allCustomers = await client.query("SELECT * FROM customersapi;");
     return allCustomers[0];
 };
 
