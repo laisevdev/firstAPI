@@ -47,5 +47,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(`${PORTA_SERVER}`, () => {
-    console.log("Servidor está Funcionando Corretamente!")
+    console.log("Server running!")
 });
