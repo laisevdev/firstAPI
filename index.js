@@ -42,7 +42,7 @@ app.get("/customers", async (req, res) => {
 
 app.get("/", (req, res) => {
     res.json({
-        message: "Servidor funcionando na Porta" + ' ' + `${PORTA_SERVER}`
+        message: "Server running on Port:" + ' ' + `${PORTA_SERVER}`
     });
 });
 
